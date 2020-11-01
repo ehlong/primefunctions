@@ -1,10 +1,10 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 let _ = require('underscore');
 
-function primeGen(limit) {
-  let array = [limit]; // create array of correct size
-  let upBound = Math.sqrt(limit); // create a binding to lower operation time
-  let output = []; // create array to hold output
+function primeGen(limit) { // return list of prime numbers up to the limit
+  const array = [limit]; // create array of correct size
+  const upBound = Math.sqrt(limit); // create a binding to lower operation time
+  const output = []; // create array to hold output
   for (let i = 0; i < limit; i++) { // activate all array members
     array.push(true);
   }
@@ -23,3 +23,17 @@ function primeGen(limit) {
   }
   return output;
 }
+
+function cumulativeSum(list) { // produce a cumulative sum for list passed in
+  const retArray = [list.length];
+  const first = list[0];
+  retArray[0] = first;
+  for (let i = 1; i < list.length; i++){
+    const hold = list[i];
+    retArray[i] = retArray[i - 1] + hold;
+  }
+  return retArray;
+}
+
+const x = primeGen(10);
+console.log(cumulativeSum(x)); // works
