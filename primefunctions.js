@@ -23,4 +23,3 @@ function primeGen(limit) {
   }
   return output;
 }
-console.log(primeGen(100));
