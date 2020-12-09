@@ -1,7 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-const _ = require('underscore'); // silencing error due to IntelliJ not seeing Underscore
-// feel free to delete initial comment if IntelliJ chooses to play nice
-
 function primeGen(limit) { // return list of prime numbers up to the limit
   let array = [limit]; // create array of correct size
   const upBound = Math.sqrt(limit); // create a binding to lower operation time
@@ -55,5 +51,3 @@ function maxPrimeSum(limit) {
     return ar[1];
   }); // return whatever has the highest consecutive list
 }
-
-console.log(maxPrimeSum(1000)); // added to remove ESLint notice
