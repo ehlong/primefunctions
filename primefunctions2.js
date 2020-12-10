@@ -1,17 +1,26 @@
 function primeGen(limit) { // return list of prime numbers up to the limit
-  let array = [limit]; // create array of correct size
-  const upBound = Math.sqrt(limit); // create a binding to lower operation time
-  for (let i = 1; i < limit; i++) { // activate all array members
-    array.push(i);
+  const list = [limit]; // all underscore removed to speed up processing time
+  const upBound = Math.sqrt(limit); // binding to lower operation time
+  const out = [];
+
+  for (let i = 0; i < limit; i++) { // activate all array members
+    list.push(true);
   }
-  array.sort(function (a, b) { return a - b; }); // sort array
-  array = _.rest(array); // remove 1
-  for (let i = 2; i <= upBound; i++) { // run through list
-    for (let j = i * i; j <= limit; j += i) { // for square of i until the limit
-      array = _.reject(array, function (num) { return num === j; }); // trim out multiples
+
+  for (let j = 2; j <= upBound; j++) {
+    if (list[j]) {
+      for (let k = j * j; k < limit; k += j) { // trim multiples
+        list[k] = false; // not a prime
+      }
     }
   }
-  return array;
+
+  for (let l = 2; l < limit; l++) {
+    if (list[l]) {
+      out.push(l); // if value true, is a prime, push to out
+    }
+  }
+  return out;
 }
 
 function cumulativeSum(list) { // produce a cumulative sum for list passed in
@@ -51,3 +60,5 @@ function maxPrimeSum(limit) {
     return ar[1];
   }); // return whatever has the highest consecutive list
 }
+
+maxPrimeSum(10);

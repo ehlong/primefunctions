@@ -1,17 +1,19 @@
-/*  global primeGen, cumulativeSum, maxPrimeSum*/
+/*  maxPrimeSum */
 
-
+// two warning silenced due to code structure - will always be "undefined"
 describe('primefunctions', function () {
   describe('maxPrimeSum Test', function () {
-    it('maxPrimeSum(10000)=>[9521, 65]', function () {
+    it('maxPrimeSum(10000) should take less than 50ms', function () {
       this.slow(0);
-      this.timeout(1000);
-      chai.expect(maxPrimeSum(100)).to.deep.equal([41,6]);
+      this.timeout(50);
+      // eslint-disable-next-line no-undef
+      chai.expect(maxPrimeSum(10000)).to.deep.equal([9521, 65]);
     });
-    it('maxPrimeSum(100000)=>[92951, 183]', function () {
+    it('maxPrimeSum(100000) should take less than 1000ms', function () {
       this.slow(0);
       this.timeout(1000);
-      chai.expect(maxPrimeSum(1000)).to.deep.equal([953, 21]);
+      // eslint-disable-next-line no-undef
+      chai.expect(maxPrimeSum(100000)).to.deep.equal([92951, 183]);
     });
   });
 });
