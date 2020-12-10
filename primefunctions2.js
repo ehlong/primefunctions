@@ -34,7 +34,7 @@ function cumulativeSum(list) { // produce a cumulative sum for list passed in
   return arr;
 }
 
-function maxPrimeSum(limit) {
+function maxPrimeSum(limit) { // no changed needed here, only in primeGen
   let primes = primeGen(limit); // list of prime numbers to limit
   let primeSums = _.reject(cumulativeSum(primes), function (num) {
     return num >= limit;
